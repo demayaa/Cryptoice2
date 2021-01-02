@@ -9,15 +9,17 @@
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
-    <!-- Scripts -->
-    <script src="{{ asset('public/js/app.js') }}" defer></script>
-
-    <!-- Fonts -->
-    <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
-
-    <!-- Styles -->
-    <link href="{{ asset('public/css/app.css') }}" rel="stylesheet">
+      <!-- MDB icon -->
+      <link rel="icon" href="img/mdb-favicon.ico" type="image/x-icon">
+      <!-- Font Awesome -->
+      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+      <!-- Bootstrap core CSS -->
+      <link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}">
+      <!-- Material Design Bootstrap -->
+      <link rel="stylesheet" href="{{asset('css/mdb.min.css')}}">
+      <!-- Your custom styles (optional) -->
+      <link rel="stylesheet" href="{{asset('css/style.css')}}">
+      <link type="text/css" href="{{asset('sample/css/sample.css')}}" rel="stylesheet" />
 </head>
 <body>
     <div id="app">
@@ -76,5 +78,13 @@
             @yield('content')
         </main>
     </div>
+        <!-- jQuery -->
+        <script type="text/javascript" src="{{asset('js/jquery.min.js')}}"></script>
+        <!-- Bootstrap tooltips -->
+        <script type="text/javascript" src="{{asset('js/popper.min.js')}}"></script>
+        <!-- Bootstrap core JavaScript -->
+        <script type="text/javascript" src="{{asset('js/bootstrap.min.js')}}"></script>
+        <!-- MDB core JavaScript -->
+        <script type="text/javascript" src="{{asset('js/mdb.min.js')}}"></script>
 </body>
 </html>

@@ -1,139 +1,98 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta http-equiv="x-ua-compatible" content="ie=edge" />
+        <title>{{ config('app.name', 'CryptoICE') }}</title>
+        <!-- MDB icon -->
+        <link rel="icon" href="img/mdb-favicon.ico" type="image/x-icon" />
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css" />
+        <!-- Bootstrap core CSS -->
+        <link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}" />
+        <!-- Material Design Bootstrap -->
+        <link rel="stylesheet" href="{{asset('css/mdb.min.css')}}" />
+        <!-- Your custom styles (optional) -->
+        <link rel="stylesheet" href="{{asset('css/style.css')}}" />
+        
+    </head>
+    <body class="fixed-sn light-blue-skin">
+        <!--Double navigation-->
+        <header>
+            <!-- Sidebar navigation -->
+            <div id="slide-out" class="side-nav sn-bg-4 fixed">
+                <ul class="custom-scrollbar">
+                    <!--Search Form-->
+                    <li>
+                      <form class="search-form" role="search" action="{{route('blog.cari')}}" method="get">
+                        <div class="form-group md-form mt-0 pt-1 waves-light">
+                          <input type="text" name="cari" class="form-control" placeholder="Search">
+                        </div>
+                      </form>
+                    </li>
+                    <!--/.Search Form-->
 
-<head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-	<!-- META UNTUK GOOGLE MAX:100-140 -->
-	<meta name="description" content=""/> 
-
-	<!-- META UNTUK FACEBOOK -->
-	<meta property="og:title" content="">
-	<meta property="og:description" content="">
-	<meta property="og:image" content="">
-	<meta property="og:url" content="">
-
-	<!-- META UNTUK TWITTER -->
-	<meta name="twitter:title" content="">
-	<meta name="twitter:description" content="">
-	<meta name="twitter:image" content="">
-	<meta name="twitter:card" content="">
-
-	<title>Callie HTML Template</title>
-
-	<!-- Google font -->
-	<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700%7CMuli:400,700" rel="stylesheet">
-
-	<!-- Bootstrap -->
-	<link type="text/css" rel="stylesheet" href="{{ asset('public/frontend/css/bootstrap.min.css') }}" />
-
-	<!-- Font Awesome Icon -->
-	<link rel="stylesheet" href="{{ asset('public/frontend/css/font-awesome.min.css') }}">
-
-	<!-- Custom stlylesheet -->
-	<link type="text/css" rel="stylesheet" href="{{ asset('public/frontend/css/style.css') }}" />
-
-	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-	<!--[if lt IE 9]>
-		  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-		  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-		<![endif]-->
-
-</head>
-
-<body>
-	<!-- HEADER -->
-	<header id="header">
-		<!-- NAV -->
-		<div id="nav">
-			<!-- Top Nav -->
-			<div id="nav-top">
-				<div class="container">
-					<!-- social -->
-					<ul class="nav-social">
-						<li><a href="#"><i class="fa fa-facebook"></i></a></li>
-						<li><a href="#"><i class="fa fa-twitter"></i></a></li>
-						<li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-						<li><a href="#"><i class="fa fa-instagram"></i></a></li>
-					</ul>
-					<!-- /social -->
-
-					<!-- logo -->
-					<div class="nav-logo">
-						<a href="index.html" class="logo"><img src="{{ asset('public/frontend/img/logo.png')}}" alt=""></a>
-					</div>
-					<!-- /logo -->
-
-					<!-- search & aside toggle -->
-					<div class="nav-btns">
-						<button class="aside-btn"><i class="fa fa-bars"></i></button>
-						<button class="search-btn"><i class="fa fa-search"></i></button>
-						<div id="nav-search">
-							<form action="{{route('blog.cari')}}" method="get">
-								<input class="input" name="cari" placeholder="Enter your search...">
-							</form>
-							<button class="nav-close search-close">
-								<span></span>
-							</button>
-						</div>
-					</div>
-					<!-- /search & aside toggle -->
-				</div>
-			</div>
-			<!-- /Top Nav -->
-
-			<!-- Main Nav -->
-			<div id="nav-bottom">
-				<div class="container">
-					<!-- nav -->
-					<ul class="nav-menu">
-						<li><a href="{{ url('') }}">Beranda</a></li>
-						<li class="has-dropdown">
-							<a href="index.html">CATEGORY</a>
-							<div class="dropdown">
-								<div class="dropdown-body">
-									<ul class="dropdown-list">
-									@foreach($category_widget as $result1)
-									<li><a href="category.html">{{ $result1->name }}</a></li>
-									@endforeach
-									</ul>
-								</div>
-							</div>
-						</li>
-				
-						<li><a href="{{ route('blog.list') }}">List Post</a></li>
-						<li><a href="#">Health</a></li>
-						<li><a href="#">Travel</a></li>
-					</ul>
-					<!-- /nav -->
-				</div>
-			</div>
-			<!-- /Main Nav -->
-
-			<!-- Aside Nav -->
-			<div id="nav-aside">
-				<ul class="nav-aside-menu">
-					<li><a href="index.html">Home</a></li>
-					<li class="has-dropdown"><a>Categories</a>
-						<ul class="dropdown">
-							<li><a href="#">Lifestyle</a></li>
-							<li><a href="#">Fashion</a></li>
-							<li><a href="#">Technology</a></li>
-							<li><a href="#">Travel</a></li>
-							<li><a href="#">Health</a></li>
-						</ul>
-					</li>
-					<li><a href="about.html">About Us</a></li>
-					<li><a href="contact.html">Contacts</a></li>
-					<li><a href="#">Advertise</a></li>
-				</ul>
-				<button class="nav-close nav-aside-close"><span></span></button>
-			</div>
-			<!-- /Aside Nav -->
-		</div>
-		<!-- /NAV -->
-	</header>
-	<!-- /HEADER -->
+                    <!-- Side navigation links -->
+                    <li>
+                        <ul class="collapsible collapsible-accordion">
+                            <li>
+                                <a href="/" class="waves-effect arrow-r"><i class="fas fa-house-damage"></i> Home</a>
+                            </li>
+                            <li>
+                                <a href="/posts/category/airdrop" class="waves-effect arrow-r"><i class="fab fa-phoenix-squadron"></i> Airdrop</a>
+                            </li>
+                            <li>
+                                <a href="/posts/category/news" class="waves-effect arrow-r"><i class="fas fa-newspaper"></i> News</a>
+                            </li>
+                            <li>
+                                <a href="/posts/category/cryptocurrency" class="waves-effect arrow-r"><i class="fab fa-btc"></i> Cryptocurrency</a>
+                            </li>
+                            <li>
+                                <a href="/posts/category/announcement" class="waves-effect arrow-r"><i class="fas fa-bullhorn"></i> Announcement</a>
+                            </li>
+                            <li>
+                                <a href="/contact" class="waves-effect arrow-r"><i class="fas fa-phone-volume"></i> Contact</a>
+                            </li>
+                            <li>
+                                <a href="/about" class="waves-effect arrow-r"><i class="fas fa-phone-volume"></i> about us</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <!--/. Side navigation links -->
+                </ul>
+                <div class="sidenav-bg mask-strong"></div>
+            </div>
+            <!--/. Sidebar navigation -->
+            <!-- Navbar -->
+            <nav class="navbar fixed-top navbar-toggleable-md navbar-expand-lg scrolling-navbar double-nav">
+                <!-- SideNav slide-out button -->
+                <div class="float-left">
+                    <a href="#" data-activates="slide-out" class="button-collapse"><i class="fas fa-bars"></i></a>
+                </div>
+                <!-- Breadcrumb-->
+                <div class="mr-auto">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb clearfix d-md-inline-flex pt-0">
+                            <li class="breadcrumb-item"><a class="white-text" href="/">{{ config('app.name', 'CryptoICE') }}</a></li>
+                        </ol>
+                    </nav>
+                </div>
+            </nav>
+            <!-- /.Navbar -->
+            <div
+                class="jumbotron card card-image mask flex-center waves-effect waves-light rgba-teal-strong"
+                style="background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR5Wz5fp3YS4qeJMDgut0ulld5qXSJDHfgabw&usqp=CAU);"
+            >
+                <div class="text-white text-center py-5 px-4">
+                    <div>
+                        <h2 class="h1-responsive cyan-lighter-hover pt-4 mb-2 font-weight-bold"><strong>Welcome To {{ config('app.name', 'CryptoICE') }} </strong></h2>
+                    </div>
+                </div>
+            </div>
+            <div style="margin-top: -30px;">
+                <script src="https://widgets.coingecko.com/coingecko-coin-price-marquee-widget.js"></script>
+                <coingecko-coin-price-marquee-widget coin-ids="bitcoin,eos,ethereum,litecoin,ripple,1inch,tron,dogecoin" currency="usd" background-color="#ffffff" locale="id"></coingecko-coin-price-marquee-widget>
+            </div>
+        </header>
+        <!--/.Double navigation-->

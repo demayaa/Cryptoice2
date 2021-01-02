@@ -4,40 +4,36 @@
 
 	@foreach($data as $isi_post)
 
-	<div id="post-header" class="page-header">
-			<div class="page-header-bg" style="
-			background-image: url( {{asset($isi_post->gambar) }} );" 
-
-			data-stellar-background-ratio="0.5"></div>
-			<div class="container">
-				<div class="row">
-					<div class="col-md-10">
-						<div class="post-category">
-							<a href="category.html">{{ $isi_post->category->name }}</a>
-						</div>
-						<h1>{{ $isi_post->judul }}</h1>
-						<ul class="post-meta">
-							<li><a href="author.html">{{ $isi_post->users->name }}</a></li>
-							<li>{{ $isi_post->created_at }}</li>
-						
-							<!-- <li><i class="fa fa-eye"></i> 807</li> -->
-						</ul>
-					</div>
-				</div>
-			</div>
-		</div>
-		<!-- /PAGE HEADER -->
-	</header>
-	<div class="col-md-8 hot-post-left">
-	<br>
-		<div class="section-row">
-
-
-
-		{!! $isi_post->content !!}
-
-		</div>
+	<div class="card card-cascade">
+                    <!-- Card image -->
+                    <div class="view view-cascade overlay">
+                        <img class="card-img-top" src="{{asset($isi_post->gambar) }}" alt="Card image cap" />
+                        <a href="#!">
+                            <div class="mask rgba-black-slight"></div>
+                        </a>
+                    </div>
+                    <div class="card-body card-body-cascade">
+                        <div class="text-center">
+                            <h4 class="card-title font-weight-bold">{{ $isi_post->judul }}</h4>
+                            <ul class="list-unstyled list-inline font-small">
+                              <li class="list-inline-item pr-2 black-text"><i class="far fa-clock pr-1"></i>{{ $isi_post->created_at }}</li>
+                              <li class="list-inline-item pr-2 black-text"><i class="fas fa-user-edit fas-sm pr-1"></i>{{ $isi_post->users->name }}</li>
+                             </ul>
+                        </div>
+                        <div class="">
+                            <p class="mb-0 mt-0">Category : <a href="#!" class="trigger teal info-color text-white">{{ $isi_post->category->name }}</a></p>
+                        </div>
+                        <div class="content mt-5">
+                            {!! $isi_post->content !!}
+                        </div>
+                        <hr>
+                        <div class="text-center">
+                            <h5>Share On</h5>
+                            <!--Twitter-->
+                            <a href="https://twitter.com/intent/tweet?text=https://cryptoice.biz/posts" class="btn btn-sm btn-tw"><i class="fab fa-twitter pr-1"></i> Twitter</a>
+                        </div>
+                    </div>
+                </div>
 	@endforeach
-	</div>
 
 @endsection

@@ -17,9 +17,9 @@ Route::get('/', 'BlogController@index');
 /*Route::get('/isi_post', function(){
 	return view('blog.isi_post');
 });*/
-Route::get('/isi-post/{slug}', 'BlogController@isi_blog')->name('blog.isi');
-Route::get('/list-post','BlogController@list_blog')->name('blog.list');
-Route::get('/list-category/{category}','BlogController@list_category')->name('blog.category');
+Route::get('/posts/{slug}', 'BlogController@isi_blog')->name('blog.isi');
+Route::get('/posts','BlogController@list_blog')->name('blog.list');
+Route::get('/posts/category/{category}','BlogController@list_category')->name('blog.category');
 Route::get('/cari','BlogController@cari')->name('blog.cari');
 
 
@@ -35,11 +35,11 @@ Route::group(['middleware' => 'auth'], function(){
 	Route::delete('/post/kill/{id}', 'PostController@kill')->name('post.kill');
 	Route::resource('/post', 'PostController');
 	Route::resource('/user', 'UserController');
+	Route::resource('/team', 'TeamController');
 });
 
-
-
-
+Route::get('/contact', 'BlogController@contact')->name('blog.contact');
+Route::get('/about', 'BlogController@about')->name('blog.about');
 
 
 

@@ -11,7 +11,7 @@
 	<a href="{{ route('post.create') }}" class="btn btn-info btn-sm">Tambah Post</a>
 	<br><br>
 
-	<table class="table table-striped table-hover table-sm table-bordered">
+	<table class="table table-responsive table-striped table-hover table-sm table-bordered">
 		<thead>
 			<tr>
 				<th>No</th>

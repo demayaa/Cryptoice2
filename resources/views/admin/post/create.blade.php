@@ -42,7 +42,8 @@
   </div>
   <div class="form-group">
       <label>Konten</label>
-      <textarea class="form-control" name="content" id="content"></textarea>
+      <textarea name="content" id="Content" hidden="hidden"></textarea>
+	   <div id="editor"></div>
   </div>
   <div class="form-group">
       <label>Thumbnail</label>

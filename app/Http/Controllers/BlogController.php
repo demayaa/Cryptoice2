@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Posts;
+use App\Team;
 use App\Category;
 
 class BlogController extends Controller
@@ -42,5 +43,18 @@ class BlogController extends Controller
 
         $data = Posts::where('judul', $request->cari)->orWhere('judul','like','%'.$request->cari.'%')->paginate(6);
         return view('blog.list_post', compact('data','category_widget'));
+    }
+    
+    public function contact()
+    {
+        $category_widget = Category::all();
+        return view('blog.contact', compact('category_widget'));
+    }
+    
+    public function about()
+    {
+        $team = Team::all();
+        $category_widget = Category::all();
+        return view('blog.team', compact('category_widget','team'));
     }
 }
