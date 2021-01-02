@@ -14,12 +14,12 @@
       <!-- Font Awesome -->
       <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
       <!-- Bootstrap core CSS -->
-      <link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}">
+      <link rel="stylesheet" href="{{asset('public/css/bootstrap.min.css')}}">
       <!-- Material Design Bootstrap -->
-      <link rel="stylesheet" href="{{asset('css/mdb.min.css')}}">
+      <link rel="stylesheet" href="{{asset('public/css/mdb.min.css')}}">
       <!-- Your custom styles (optional) -->
-      <link rel="stylesheet" href="{{asset('css/style.css')}}">
-      <link type="text/css" href="{{asset('sample/css/sample.css')}}" rel="stylesheet" />
+      <link rel="stylesheet" href="{{asset('public/css/style.css')}}">
+      <link type="text/css" href="{{asset('public/sample/css/sample.css')}}" rel="stylesheet" />
 </head>
 <body>
     <div id="app">
@@ -79,12 +79,12 @@
         </main>
     </div>
         <!-- jQuery -->
-        <script type="text/javascript" src="{{asset('js/jquery.min.js')}}"></script>
+        <script type="text/javascript" src="{{asset('public/js/jquery.min.js')}}"></script>
         <!-- Bootstrap tooltips -->
-        <script type="text/javascript" src="{{asset('js/popper.min.js')}}"></script>
+        <script type="text/javascript" src="{{asset('public/js/popper.min.js')}}"></script>
         <!-- Bootstrap core JavaScript -->
-        <script type="text/javascript" src="{{asset('js/bootstrap.min.js')}}"></script>
+        <script type="text/javascript" src="{{asset('public/js/bootstrap.min.js')}}"></script>
         <!-- MDB core JavaScript -->
-        <script type="text/javascript" src="{{asset('js/mdb.min.js')}}"></script>
+        <script type="text/javascript" src="{{asset('public/js/mdb.min.js')}}"></script>
 </body>
 </html>
